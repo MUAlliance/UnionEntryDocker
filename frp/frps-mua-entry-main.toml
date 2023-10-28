@@ -1,0 +1,28 @@
+bindPort = {{ .Envs.FRPS_BIND_PORT }}
+kcpBindPort = {{ .Envs.FRPS_KCP_BIND_PORT }}
+quicBindPort = {{ .Envs.FRPS_QUIC_BIND_PORT }}
+allowPorts = [
+    { start = 10000, end = 19999 }
+]
+
+auth.token = {{ .Envs.FRPS_AUTH_TOKEN }}
+
+includes = ["./conf-enabled/*"]
+
+[[httpPlugins]]
+name = "register"
+addr = "localhost:8080"
+path = "/register"
+ops = ["NewProxy"]
+
+[[httpPlugins]]
+name = "unregister"
+addr = "localhost:8080"
+path = "/unregister"
+ops = ["CloseProxy"]
+
+[[httpPlugins]]
+name = "login"
+addr = "localhost:8080"
+path = "/login"
+ops = ["Login"]
