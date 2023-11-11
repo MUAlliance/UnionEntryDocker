@@ -5,7 +5,7 @@ allowPorts = [
     { start = 10000, end = 19999 }
 ]
 
-auth.token = {{ .Envs.FRPS_AUTH_TOKEN }}
+auth.token = "{{ .Envs.FRPS_AUTH_TOKEN }}"
 
 includes = ["./conf-enabled/*"]
 

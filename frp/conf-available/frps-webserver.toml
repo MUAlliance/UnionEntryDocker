@@ -1,4 +1,4 @@
 [[webServer]]
 port = {{ .Envs.FRPS_WEBSERVER_PORT }}
-user = {{ .Envs.FRPS_WEBSERVER_USER }}
-password = {{ .Envs.FRPS_WEBSERVER_PASSWORD }}
+user = "{{ .Envs.FRPS_WEBSERVER_USER }}"
+password = "{{ .Envs.FRPS_WEBSERVER_PASSWORD }}"
