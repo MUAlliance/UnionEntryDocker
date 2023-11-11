@@ -20,7 +20,7 @@ else
 fi
 
 if [ ${FRP_WEBSERVER_ENABLED} ]; then
-    ln -s ${FRP_HOME}/conf-available/frps-webserver.toml ${FRP_HOME}/conf-enabled/frps-webserver.toml
+    ln -s ${FRP_HOME}/conf-enabled/frps-webserver.toml ${FRP_HOME}/conf-available/frps-webserver.toml
 else 
     rm -f ${FRP_HOME}/conf-enabled/frps-webserver.toml
 fi

@@ -25,10 +25,6 @@ function first_launch_setup() {
         echo "Please set environment variable UNION_SYNC_URL."
         exit 1
     fi
-    if [ ! ${UNION_SYNC_AUTH_TYPE} ] ; then
-        UNION_SYNC_AUTH_TYPE="UNION"
-        echo "Using ${UNION_AUTH_TYPE} as UNION_SYNC_AUTH_TYPE."
-    fi
     if [ ! ${UNION_SYNC_AUTH_TOKEN} ] ; then
         echo "Please set environment variable UNION_SYNC_AUTH_TOKEN."
         exit 1
@@ -47,13 +43,14 @@ function first_launch_setup() {
 
     cp /server/plugins/proxied-proxy/config-template-entry.toml /server/plugins/proxied-proxy/config.toml
     # Change forwarding to legacy
-    sed -i 's/player-info-forwarding-mode = "\(.*\)"/player-info-forwarding-mode = "legacy" # Automatically set on first launch/i' /server/velocity.toml
+    sed -i 's/player-info-forwarding-mode = "\(.*\)"/player-info-forwarding-mode = "legacy" # Automatically set on first launch/i;
+            s/ping-passthrough = "\(.*\)"/ping-passthrough = "all" # Automatically set on first launch/i' /server/velocity.toml
     # Set ProxiedProxy config
     sed -i 's/entry-id = "\(.*\)"/entry-id = "'"${UNION_ENTRY_ID}"'" # Automatically set on first launch/i' /server/plugins/proxied-proxy/config.toml
     # Set UnionSync config
     sed -i 's|server = "\(.*\)"|server = "'"${UNION_SYNC_URL}"'" # Automatically set on first launch|i;
-            s|type = "\(.*\)"|type = "'"${UNION_SYNC_AUTH_TYPE}"'" # Automatically set on first launch|i;
-            s|id = "\(.*\)"|id = "'"${UNION_SYNC_AUTH_ID}"'" # Automatically set on first launch|i;
+            s|type = "\(.*\)"|type = "UNION" # Automatically set on first launch|i;
+            s|id = "\(.*\)"|id = "'"${UNION_SYNC_AUTH_ID}"':entry" # Automatically set on first launch|i;
             s|token = "\(.*\)"|token = "'"${UNION_SYNC_AUTH_TOKEN}"'" # Automatically set on first launch|i' /server/plugins/union-sync/config.toml
 
     launch <<< "end" > /dev/null
@@ -81,4 +78,5 @@ else
     first_launch_setup
     echo "Successfully configured Union Entry! Please check /server/union for more details."
     echo "You may edit configurations and start the server again."
+    echo "Please also edit the default lobby server in velocity.toml."
 fi
