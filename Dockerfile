@@ -9,6 +9,8 @@ ENV UNION_API_ROOT=https://skin.mualliance.ltd/api/union
 COPY --chmod=755 scripts/* /usr/bin
 COPY --chmod=644 frp ${FRP_HOME}
 
+RUN mkdir ${FRP_HOME}/conf-enabled
+
 RUN /usr/bin/download.sh
 
 ENV TYPE=CUSTOM
