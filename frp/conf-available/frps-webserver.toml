@@ -2,3 +2,4 @@
 port = {{ .Envs.FRPS_WEBSERVER_PORT }}
 user = "{{ .Envs.FRPS_WEBSERVER_USER }}"
 password = "{{ .Envs.FRPS_WEBSERVER_PASSWORD }}"
+addr = "0.0.0.0"
