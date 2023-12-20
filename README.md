@@ -23,16 +23,20 @@
         - UNION_ENTRY_ID=<MUA CODE>
         - UNION_SYNC_AUTH_TOKEN=<UNION API TOKEN>
         - FRPS_AUTH_TOKEN=<RANDOM STRING>
+        - FRPS_WEBSERVER_USER=...
+        - FRPS_WEBSERVER_PASSWORD=...
         ports:
         - "7001:7001"
         - "7002:7002/udp"
         - "7003:7003/udp"
-        - "7050:7050"
+        - "7500:7500"
         - "25565:25577"
         restart: "no"
     ```
 
     > 这个项目使用的Docker镜像基于[itzg/bungeecord](https://hub.docker.com/r/itzg/bungeecord)。可以在这里找到进阶配置的说明。
+    
+    暴露的端口为7001(tcp), 7002(kcp), 7003(quic)和7500(admin panel)。通过`FRPS_WEBSERVER_USER`和`FRPS_WEBSERVER_PASSWORD`设置admin panel的用户名密码。
 
 2. (可选) 启用quic支持。
   - 永久修改：

@@ -7,7 +7,15 @@ allowPorts = [
 
 auth.token = "{{ .Envs.FRPS_AUTH_TOKEN }}"
 
-includes = ["./conf-enabled/*"]
+[[transport]]
+heartbeatTimeout = 10
+tcpKeepalive = 20
+
+[[webServer]]
+port = {{ .Envs.FRPS_WEBSERVER_PORT }}
+user = "{{ .Envs.FRPS_WEBSERVER_USER }}"
+password = "{{ .Envs.FRPS_WEBSERVER_PASSWORD }}"
+addr = "0.0.0.0"
 
 [[httpPlugins]]
 name = "register"

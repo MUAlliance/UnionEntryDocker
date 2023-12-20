@@ -19,9 +19,4 @@ else
     echo "Starting FRPS..."
 fi
 
-rm -f ${FRP_HOME}/conf-enabled/frps-webserver.toml
-if [ ${FRPS_WEBSERVER_ENABLED} ]; then
-    ln -s ${FRP_HOME}/conf-available/frps-webserver.toml ${FRP_HOME}/conf-enabled/frps-webserver.toml
-fi
-
 exec ${FRP_HOME}/frps -c ${FRP_HOME}/frps-mua-entry-main.toml
