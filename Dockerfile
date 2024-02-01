@@ -11,7 +11,7 @@ COPY --chmod=644 frp ${FRP_HOME}
 
 RUN mkdir ${FRP_HOME}/conf-enabled
 # Disable cache
-ADD http://www.convert-unix-time.com/api?timestamp=now /tmp/bustcache
+ADD https://worldtimeapi.org/api/timezone/UTC /tmp/bustcache
 RUN /usr/bin/download.sh
 
 ENV TYPE=CUSTOM
