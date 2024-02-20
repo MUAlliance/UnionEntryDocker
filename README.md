@@ -6,7 +6,7 @@
 - docker, docker compose
 
 ## 部署
-1. 创建并编辑`docker-compose.yml`，并修改尖括号中的内容。建议为`FRPS_AUTH_TOKEN`生成随机字符串。**不需要双引号。**。`<MUA CODE>`大写。
+1. 创建并编辑`docker-compose.yml`，并修改尖括号中的内容。建议为`FRPS_AUTH_TOKEN`生成随机字符串。**不需要尖括号。**。`<MUA CODE>`请大写，`<MUA CODE>`和`<UNION API TOKEN>`同皮肤站密钥。FRPS_WEBSERVER参数指定7500端口的管理面板凭据。
 
     ```
     version: "3.8"
