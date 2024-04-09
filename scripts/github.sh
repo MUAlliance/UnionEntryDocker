@@ -36,9 +36,9 @@ IFS="/" read -r owner repo <<< "$repo"
 
 # Use the GitHub API to fetch the latest release information, including pre-releases if specified
 if [ "$pre_release" = true ]; then
-  latest_release=$(wget -qO- "https://api.github.com/repos/$owner/$repo/releases/latest")
+  latest_release=$(wget -qO- "https://api.github.com/repos/$owner/$repo/releases" | jq -r ".[0]")
 else
-  latest_release=$(wget -qO- "https://api.github.com/repos/$owner/$repo/releases")
+  latest_release=$(wget -qO- "https://api.github.com/repos/$owner/$repo/releases/latest")
 fi
 
 # Extract the download URL for the release asset that matches the filename pattern
