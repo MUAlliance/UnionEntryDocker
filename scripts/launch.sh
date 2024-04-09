@@ -8,7 +8,8 @@ function launch() {
     rm -f /server/authlib-injector.jar
     cp /download/authlib-injector.jar /server
     JVM_OPTS="${JVM_OPTS} -javaagent:/server/authlib-injector.jar=${UNION_API_ROOT}/yggdrasil" \
-    PLUGINS="${PLUGINS},/download/ProxiedProxy.jar,/download/mua-proxy-plugin.jar,/download/UnionSyncAnnouncement.jar",/download/MapModCompanion.jar \
+    PLUGINS="${PLUGINS},/download/ProxiedProxy.jar,/download/mua-proxy-plugin.jar,/download/UnionSyncAnnouncement.jar,
+        /download/MapModCompanion.jar,/download/protocolize.jar,/download/MappedDimensionName.jar" \
     /usr/bin/run-bungeecord.sh
 }
 
