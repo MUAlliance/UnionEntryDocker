@@ -44,11 +44,11 @@ function first_launch_setup() {
     fi
 
 
-    echo "Generating configurations..."
+    echo "[1/3] Generating configurations..."
 
-    launch <<< "end" > /dev/null
+    launch <<< "end"
     
-    echo "Setting configurations..."
+    echo "[2/3] Setting configurations..."
 
     cp /server/plugins/proxied-proxy/config-template-entry.toml /server/plugins/proxied-proxy/config.toml
     # Change forwarding to legacy
@@ -62,7 +62,9 @@ function first_launch_setup() {
             s|id = "\(.*\)"|id = "'"${UNION_SYNC_AUTH_ID}"':entry" # Automatically set on first launch|i;
             s|token = "\(.*\)"|token = "'"${UNION_SYNC_AUTH_TOKEN}"'" # Automatically set on first launch|i' /server/plugins/union-sync/config.toml
 
-    launch <<< "end" > /dev/null
+    echo "[3/3] Testing configurations..."
+
+    launch <<< "end"
 
     mkdir /server/union
     cp /server/plugins/proxied-proxy/entry.json /server/union
