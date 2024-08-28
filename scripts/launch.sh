@@ -10,11 +10,9 @@ function launch() {
     union_plugins="/download/ProxiedProxy.jar,/download/mua-proxy-plugin.jar,/download/UnionSyncAnnouncement.jar"
     if [ ! ${DISABLE_PLUGIN_MAPMODCOMPANION} ] ; then
         union_plugins="${union_plugins},/download/MapModCompanion.jar"
-        exit 1
     fi
     if [ ! ${DISABLE_PLUGIN_MAPPEDDIMENSIONNAME} ] ; then
         union_plugins="${union_plugins},/download/protocolize.jar,/download/MappedDimensionName.jar"
-        exit 1
     fi
     JVM_OPTS="${JVM_OPTS} -javaagent:/server/authlib-injector.jar=${UNION_API_ROOT}/yggdrasil" \
     PLUGINS="${PLUGINS},${union_plugins}" \
