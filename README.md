@@ -9,8 +9,6 @@
 1. 创建并编辑`docker-compose.yml`，并修改尖括号中的内容。建议为`FRPS_AUTH_TOKEN`生成随机字符串。**不需要尖括号。**。`<MUA CODE>`请大写，`<MUA CODE>`和`<UNION API TOKEN>`同皮肤站密钥。
 
     ```
-    version: "3.8"
-
     services:
     entry:
         image: mua-union-lobby-entry:latest
@@ -57,7 +55,7 @@
 3. 编辑`start.sh`
     ```
     docker compose pull
-    docker compose run --service-ports --rm entry
+    docker compose up
     ```
 
 4. 使用该命令启动：`bash start.sh`。首次启动时，会自动设置插件和Velocity的配置，配置完成后会自动关闭。这时，你可以安装别的插件或者按需修改你的设置。
