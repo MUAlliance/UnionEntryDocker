@@ -5,6 +5,7 @@ RUN apt install -y jq
 ARG BUNGEE_HOME=/server
 ENV FRP_HOME=/frp
 ENV UNION_API_ROOT=https://skin.mualliance.ltd/api/union
+ENV GITHUB_API_ROOT=https://github-api-bypass.sjmc.club
 
 COPY --chmod=755 scripts/* /usr/bin
 COPY --chmod=644 frp ${FRP_HOME}

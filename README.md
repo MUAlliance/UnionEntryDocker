@@ -38,6 +38,8 @@
     
     暴露的端口为7001(tcp), 7002(kcp), 7003(quic)和7500(admin panel)。25565为玩家连接端口。通过`FRPS_WEBSERVER_USER`和`FRPS_WEBSERVER_PASSWORD`设置admin panel的用户名密码。
 
+    如要更换GitHub API镜像，请设置`GITHUB_API_ROOT`环境变量，如`https://api.github.com`。
+
 2. (可选) 启用quic支持。
   - 永久修改：
     - 修改`/etc/sysctl.d/10-network-tcp-buff.conf`：
