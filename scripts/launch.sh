@@ -80,6 +80,7 @@ if [ -f "/server/union/entry.json" ]; then
     /usr/bin/launch-frp.sh > /server/frps.log &
     pid2=$!
 
+    sed -i 's|velocity.error.online-mode-only=您尚未登录至 Minecraft 账户。若您已登录，请尝试重启您的客户端。|velocity.error.online-mode-only=请使用联合认证账号加入服务器：https://mualliance.cn/union。若您已使用，请尝试重启您的客户端。|g' /server/lang/messages_zh_CN.properties
     launch
 
     kill -9 $pid2
