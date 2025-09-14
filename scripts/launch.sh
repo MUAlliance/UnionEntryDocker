@@ -14,7 +14,7 @@ function launch() {
     if [ ! ${DISABLE_PLUGIN_MAPPEDDIMENSIONNAME} ] ; then
         union_plugins="${union_plugins},/download/protocolize.jar,/download/MappedDimensionName.jar"
     fi
-    JVM_OPTS="${JVM_OPTS} -javaagent:/server/authlib-injector.jar=${UNION_API_ROOT}/yggdrasil" \
+    JVM_OPTS="-Duser.language=zh -Duser.region=CN ${JVM_OPTS} -javaagent:/server/authlib-injector.jar=${UNION_API_ROOT}/yggdrasil" \
     PLUGINS="${PLUGINS},${union_plugins}" \
     /usr/bin/run-bungeecord.sh
 }
