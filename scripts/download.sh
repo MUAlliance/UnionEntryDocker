@@ -77,7 +77,7 @@ curl -s https://authlib-injector.yushi.moe/artifact/latest.json | jq -r '.downlo
 echo "Downloading MUA plugins..."
 
 wget -O /download/ProxiedProxy.jar $(/usr/bin/github.sh --repo=CakeDreamer/ProxiedProxy --filename=.*\.jar --pre-release=true) 
-wget -O /download/UnionSyncAnnouncement.jar $(/usr/bin/github.sh --repo=MUAlliance/UnionSyncAnnouncement --filename=.*\.jar --pre-release=true) 
+# wget -O /download/UnionSyncAnnouncement.jar $(/usr/bin/github.sh --repo=MUAlliance/UnionSyncAnnouncement --filename=.*\.jar --pre-release=true) 
 wget -O /download/mua-proxy-plugin.jar $(/usr/bin/github.sh --repo=MagicalSheep/mua-proxy-plugin --filename=.*\.jar --pre-release=true)
 wget -O /download/MapModCompanion.jar $(/usr/bin/github.sh --repo=turikhay/MapModCompanion --filename=.*\.jar --pre-release=true)
 wget -O /download/protocolize.jar https://ci.exceptionflug.de/job/Protocolize2/lastSuccessfulBuild/artifact/protocolize-velocity/target/protocolize-velocity.jar
