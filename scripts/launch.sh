@@ -7,7 +7,7 @@ echo "================================================"
 function launch() {
     rm -f /server/authlib-injector.jar
     cp /download/authlib-injector.jar /server
-    union_plugins="/download/ProxiedProxy.jar,/download/mua-proxy-plugin.jar,/download/UnionSyncAnnouncement.jar"
+    union_plugins="/download/ProxiedProxy.jar,/download/mua-proxy-plugin.jar"
     if [ ! ${DISABLE_PLUGIN_MAPMODCOMPANION} ] ; then
         union_plugins="${union_plugins},/download/MapModCompanion.jar"
     fi
