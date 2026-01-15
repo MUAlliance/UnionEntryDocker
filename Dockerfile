@@ -1,6 +1,6 @@
 FROM itzg/bungeecord
 
-RUN apt install -y jq
+RUN apt update && apt install -y jq
 
 ARG BUNGEE_HOME=/server
 ENV FRP_HOME=/frp
@@ -27,3 +27,4 @@ EXPOSE ${FRPS_BIND_PORT}/tcp ${FRPS_KCP_BIND_PORT}/udp ${FRPS_QUIC_BIND_PORT}/ud
 
 ENTRYPOINT ["/bin/bash", "-l", "-i", "/usr/bin/launch.sh"]
 HEALTHCHECK --start-period=10s CMD /usr/bin/health.sh
+
