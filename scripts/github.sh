@@ -41,11 +41,21 @@ else
   latest_release=$(wget -qO- "${GITHUB_API_ROOT}/repos/$owner/$repo/releases/latest")
 fi
 
+if [ -z "$latest_release" ]; then
+  echo "Failed to fetch release information for $owner/$repo."
+  exit 1
+fi
+
 # Extract the download URL for the release asset that matches the filename pattern
 if [ -n "$filename_regex" ]; then
   download_url=$(echo "$latest_release" | jq -r ".assets[] | select(.name | test(\"$filename_regex\")) | .browser_download_url")
 else
   download_url=$(echo "$latest_release" | jq -r ".assets[0].browser_download_url")
+fi
+
+if [ -z "$download_url" ]; then
+  echo "No asset found matching the specified filename pattern."
+  exit 1
 fi
 
 echo $download_url
