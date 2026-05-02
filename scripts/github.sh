@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 # Default values
 pre_release=false
@@ -27,7 +28,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [ -z "$repo" ]; then
-  echo "Please specify the GitHub repository using --repo."
+  echo "Please specify the GitHub repository using --repo." >&2
   exit 1
 fi
 
@@ -42,7 +43,7 @@ else
 fi
 
 if [ -z "$latest_release" ]; then
-  echo "Failed to fetch release information for $owner/$repo."
+  echo "Failed to fetch release information for $owner/$repo." >&2
   exit 1
 fi
 
@@ -54,7 +55,7 @@ else
 fi
 
 if [ -z "$download_url" ]; then
-  echo "No asset found matching the specified filename pattern."
+  echo "No asset found matching the specified filename pattern." >&2
   exit 1
 fi
 

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 function isTrue() {
   local value=${1,,}
