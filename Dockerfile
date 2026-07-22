@@ -1,6 +1,6 @@
 FROM itzg/bungeecord
 
-RUN apt update && apt install -y jq
+RUN apt update && apt install -y jq wget
 
 ARG BUNGEE_HOME=/server
 ENV FRP_HOME=/frp
