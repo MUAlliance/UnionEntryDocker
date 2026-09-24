@@ -34,7 +34,7 @@ function getFromPaperMc() {
   # Doc : https://fill.papermc.io/
 
   if [[ ${version^^} = LATEST ]]; then
-    if ! version=$(get --json-path=".versions['3.0.0'][0]" "https://fill.papermc.io/v3/projects/${project}"); then
+    if ! version=$(get --json-path=".versions['4.0.0'][0]" "https://fill.papermc.io/v3/projects/${project}"); then
       echo "ERROR: failed to lookup PaperMC versions"
       exit 1
     fi
